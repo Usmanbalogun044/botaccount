@@ -57,7 +57,7 @@ def create_account(i):
         print(f"{Fore.RED}❌ Error creating account {i}: {e}{Style.RESET_ALL}")
         writer.writerow([name, email, password, "Error"])
 
-    time.sleep(DELAY)
+    time.sleep(1)  # 👈 This will slow down each thread slightly to avoid crashing
 
 # Use ThreadPoolExecutor for speed
 with ThreadPoolExecutor(max_workers=THREADS) as executor:
