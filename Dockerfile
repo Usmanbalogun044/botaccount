@@ -8,4 +8,6 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 COPY . .
-CMD ["python", "botaccount.py"]
+
+# Add auto-restart logic
+CMD bash -c "until python botaccount.py; do echo 'App crashed. Restarting in 5s...'; sleep 5; done"
