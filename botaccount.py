@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 init(autoreset=True)
 fake = Faker()
 
-BASE_URL = "https://myfansboxs.club/"
+BASE_URL = ""
 OUTPUT_FILE = "created_accounts.csv"
 REQUEST_LIMIT = 100000000000  # Number of accounts to create
 THREADS = 10  # Number of threads for parallel creation
@@ -36,7 +36,7 @@ def create_account(i):
 
     data = {
         "_token": csrf_token,
-        "return": "https://https://myfansboxs.club/",
+        "return": "",
         "agree_gdpr": "on",
         "country": "99",
         "name": name,
@@ -46,7 +46,7 @@ def create_account(i):
     }
 
     try:
-        response = session.post("https://myfansboxs.club/signup", data=data)
+        response = session.post("", data=data)
         if response.status_code == 200:
             print(f"{Fore.GREEN}✅ [Account {i}] {name} | {email} | Password: {password}")
             writer.writerow([name, email, password, "Success"])
